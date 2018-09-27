@@ -3,31 +3,43 @@
     <div class="row" v-for="(candidate) in candidateList" :key="candidate.id">
       <div class="offset-md-1 col-md-10 candidate-container">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-2">
             <img :src="candidate.imageUrl" class="img-fluid img-avatar pull-left"/>
           </div>
           
-          <div class="col-md-8">
+          <div class="col-md-8 float-left">
             <div class="row">
               <div class="col-md-12">
-                <span>{{ candidate.name }}</span>
-                <span>{{ candidate.newThisWeek }}</span>
+                <span class="candidate-name">
+                  {{ candidate.name }}
+                  
+                  <div v-if="!candidate.newThisWeek" class="newThisWeek">
+                    <span>Novo essa semana</span>
+                  </div>
+                </span>
               </div>
-              <div class="col-md-12">
+
+              <div class="col-md-12 candidate-career">
                 <span>{{ candidate.career }}</span>
               </div>
+
               <div class="col-md-12">
+                <i class="fas fa-briefcase icon"></i>
                 <span>{{ candidate.lastCompanies.join(',')  }}</span>
               </div>
+
               <div class="col-md-12">
+                <i class="fas fa-graduation-cap icon"></i>
                 <span>{{ candidate.university }}</span>
               </div>
 
               <div class="col-md-12">
+                <i class="fas fa-map-marker-alt icon"></i>
                 <span>Disposta a trabalhar em:  {{ candidate.cities.join(',') }}</span>
               </div>
               
               <div class="col-md-12">
+                <i class="fas fa-wrench icon"></i>
                 <span>Principais habilidades:  {{ candidate.mainSkills.join(',') }}</span>
               </div>
                           
@@ -63,9 +75,44 @@ export default {
 .candidate-container {
   border: solid black 1px;
   margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 .img-avatar {
   max-height: 100px;
   max-width: 100px;
 }
+.candidate-name {
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+}
+.newThisWeek {
+  display: unset;
+  border: #ec1111 solid 1px;
+  border-radius: 20px;
+  margin-left: 10px;
+  padding-top: 1px; 
+  padding-bottom: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center;
+}
+.newThisWeek span {
+  font-size: 12px;
+  font-weight: normal;
+  color: #ec1111;
+}
+.candidate-career {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.icon {
+  margin-right: 10px;
+}
 </style>
+
