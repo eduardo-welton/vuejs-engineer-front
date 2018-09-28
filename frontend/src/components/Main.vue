@@ -50,6 +50,13 @@
             </div>
           </div>
 
+          <div class="col-md-2">
+            <button class="btn" style="margin-right: 10px;">
+              <i class="fas fa-star"></i>
+            </button>
+            <button class="btn">...</button>
+          </div>
+
         </div>
       </div>
     </div>
