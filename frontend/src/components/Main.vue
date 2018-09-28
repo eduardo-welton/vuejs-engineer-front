@@ -35,13 +35,13 @@
                 <span>{{ candidate.university }}</span>
               </div> -->
 
-              <ItemDescription :labelText="candidate.cities.join(', ')" icon="fas fa-map-marker-alt icon" />
+              <ItemDescription :labelText="`Disposto a trabalhar em: ${candidate.cities.join(', ')}`" icon="fas fa-map-marker-alt icon" />
               <!-- <div class="col-md-12">
                 <Icon iconImg="fas fa-map-marker-alt icon" />
                 <span>Disposta a trabalhar em:  {{ candidate.cities.join(',') }}</span>
               </div> -->
               
-              <ItemDescription :labelText="candidate.mainSkills.join(', ')" icon="fas fa-wrench icon" />
+              <ItemDescription :labelText=" `Principais Habilidades: ${candidate.mainSkills.join(', ')}`" icon="fas fa-wrench icon" />
               <!-- <div class="col-md-12">
                 <Icon iconImg="fas fa-wrench icon" />
                 <span>Principais habilidades:  {{ candidate.mainSkills.join(', ') }}</span>
@@ -96,8 +96,10 @@ export default {
   padding-bottom: 10px;
 }
 .img-avatar {
-  max-height: 100px;
-  max-width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center top;
+  width: 100px;
 }
 .candidate-name {
   display: flex;
