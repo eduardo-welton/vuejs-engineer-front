@@ -13,7 +13,7 @@
                 <span class="candidate-name">
                   {{ candidate.name }}
                   
-                  <div v-if="!candidate.newThisWeek" class="newThisWeek">
+                  <div v-if="candidate.newThisWeek" class="newThisWeek">
                     <span>Novo essa semana</span>
                   </div>
                 </span>
@@ -23,25 +23,29 @@
                 <span>{{ candidate.career }}</span>
               </div>
 
-              <div class="col-md-12">
-                <i class="fas fa-briefcase icon"></i>
+              <ItemDescription :labelText="candidate.lastCompanies.join(',')" icon="fas fa-briefcase icon" />
+              <!-- <div class="col-md-12">
+                <Icon iconImg="fas fa-briefcase icon" />
                 <span>{{ candidate.lastCompanies.join(',')  }}</span>
-              </div>
+              </div> -->
 
-              <div class="col-md-12">
-                <i class="fas fa-graduation-cap icon"></i>
+              <ItemDescription :labelText="candidate.university" icon="fas fa-graduation-cap icon" />
+              <!-- <div class="col-md-12">
+                <Icon iconImg="fas fa-graduation-cap icon" />
                 <span>{{ candidate.university }}</span>
-              </div>
+              </div> -->
 
-              <div class="col-md-12">
-                <i class="fas fa-map-marker-alt icon"></i>
+              <ItemDescription :labelText="candidate.cities.join(', ')" icon="fas fa-map-marker-alt icon" />
+              <!-- <div class="col-md-12">
+                <Icon iconImg="fas fa-map-marker-alt icon" />
                 <span>Disposta a trabalhar em:  {{ candidate.cities.join(',') }}</span>
-              </div>
+              </div> -->
               
-              <div class="col-md-12">
-                <i class="fas fa-wrench icon"></i>
-                <span>Principais habilidades:  {{ candidate.mainSkills.join(',') }}</span>
-              </div>
+              <ItemDescription :labelText="candidate.mainSkills.join(', ')" icon="fas fa-wrench icon" />
+              <!-- <div class="col-md-12">
+                <Icon iconImg="fas fa-wrench icon" />
+                <span>Principais habilidades:  {{ candidate.mainSkills.join(', ') }}</span>
+              </div> -->
                           
             </div>
           </div>
@@ -54,6 +58,8 @@
 
 <script>
 import apiClient from "../apiClient";
+import Icon from "./Icon";
+import ItemDescription from "./ItemDescription"
 export default {
   name: "Main",
   data() {
@@ -66,6 +72,10 @@ export default {
   },
   props: {
     msg: String
+  },
+  components: {
+    Icon,
+    ItemDescription
   }
 };
 </script>
@@ -91,9 +101,9 @@ export default {
   display: unset;
   border: #ec1111 solid 1px;
   border-radius: 20px;
+  margin-top: 2px;
+  margin-bottom: 4px;
   margin-left: 10px;
-  padding-top: 1px; 
-  padding-bottom: 1px;
   padding-left: 10px;
   padding-right: 10px;
   display: flex;
@@ -102,7 +112,7 @@ export default {
 }
 .newThisWeek span {
   font-size: 12px;
-  font-weight: normal;
+  font-weight: bold;
   color: #ec1111;
 }
 .candidate-career {
