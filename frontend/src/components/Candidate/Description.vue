@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Icon from "./Icon";
-import Tag from "./Tag";
-import Locations from "./Locations";
+import Icon from "@/components/Candidate/Icon";
+import Tag from "@/components/Candidate/Tag";
+import Locations from "@/components/Candidate/Locations";
 export default {
   name: "Description",
   computed: {
