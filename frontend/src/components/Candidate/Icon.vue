@@ -1,6 +1,6 @@
 <template>
   <div class="icon-container text-center">
-    <i :class="iconImg"></i>
+    <i :class="`${iconImg} icon`"></i>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 .icon {
   margin-right: 10px;
   width: 20px;
- height: 20px;
+  height: 20px;
 }
 .icon-container {
  display: unset;

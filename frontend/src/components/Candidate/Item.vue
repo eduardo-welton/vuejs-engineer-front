@@ -4,7 +4,7 @@
     <div class="row">
       
       <div class="col-md-2 text-center">
-        <avatar :imgSrc="candidate.imageUrl" />
+        <Avatar :imgSrc="candidate.imageUrl" />
       </div>
 
       <div class="col-md-8 float-left">
@@ -18,28 +18,15 @@
             <Subtitle :text="candidate.career" />
           </div>
 
-            <ItemDescription :labelText="candidate.lastCompanies.join(',')" icon="fas fa-briefcase icon" />
-            <ItemDescription :labelText="candidate.university" icon="fas fa-graduation-cap icon" />
-            <ItemDescription labelText="Disposto a trabalhar em: " :locations="candidate.cities" icon="fas fa-map-marker-alt icon" />
-            <ItemDescription labelText="Principais Habilidades:" :tags="candidate.mainSkills" icon="fas fa-wrench icon" />
+          <Description :labelText="candidate.lastCompanies.join(',')" icon="fas fa-briefcase" />
+          <Description :labelText="candidate.university" icon="fas fa-graduation-cap" />
+          <Description labelText="Disposto a trabalhar em: " :locations="candidate.cities" icon="fas fa-map-marker-alt" />
+          <Description labelText="Principais Habilidades:" :tags="candidate.mainSkills" icon="fas fa-wrench" />
         </div>
       </div>
 
       <div class="col-md-2">
-        <button class="btn button" style="margin-right: 10px;" @click="favoriteCandidate(candidate)">
-          <i v-bind:class="{
-            'far fa-star': !candidate.isFavorite, 
-            'fas fa-star': candidate.isFavorite
-            }" :key="`${candidate.id}_${candidate.isFavorite}`"/>
-        </button>
-        <div class="dropdown">
-          <button class="btn button " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            ...
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Remover</a>
-          </div>
-        </div>
+        <Actions :candidate="candidate" v-on:removeCandidate="removeCandidate" v-on:favoriteCandidate="favoriteCandidate"/>
       </div>
 
     </div>
@@ -48,12 +35,13 @@
 </template>
 
 <script>
-import Avatar from "./Avatar"
+import Avatar from "./Avatar";
 import Icon from "./Icon";
-import ItemDescription from "./ItemDescription";
+import Description from "./Description";
 import Title from "./Title";
 import Advice from "./Advice";
 import Subtitle from "./Subtitle";
+import Actions from "./Actions";
 export default {
   name: "Item",
   computed: {
@@ -70,21 +58,25 @@ export default {
       }
     }
   },
-  methods: {
-    favoriteCandidate(candidate) {
-      candidate.isFavorite = !candidate.isFavorite;
-    }
-  },
   props: {
     candidate: {
       type: Object,
       required: true
     }
   },
+  methods: {
+    removeCandidate() {
+
+    },
+    favoriteCandidate() {
+      
+    }
+  },
   components: {
+    Actions,
     Avatar,
     Icon,
-    ItemDescription,
+    Description,
     Title,
     Advice,
     Subtitle
@@ -99,24 +91,6 @@ export default {
   margin-bottom: 10px;
   padding-top: 20px;
   padding-bottom: 10px;
-}
-
-.candidate-career {
-  font-weight: bold;
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-.icon {
-  margin-right: 10px;
-}
-.button {
-  border-radius: 1px;
-  background-color: white;
-  border: 1px #e4e4e4 solid;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  font-size: 16px;
 }
 </style>
 

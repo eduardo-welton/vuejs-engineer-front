@@ -12,7 +12,7 @@ import Icon from "./Icon";
 import Tag from "./Tag";
 import Locations from "./Locations";
 export default {
-  name: "ItemDescription",
+  name: "Description",
   computed: {
     computedTags: function() {
       if (!this.tags) {
