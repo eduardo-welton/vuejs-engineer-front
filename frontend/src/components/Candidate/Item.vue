@@ -65,11 +65,11 @@ export default {
     }
   },
   methods: {
-    removeCandidate() {
-
+    removeCandidate(candidateId) {
+      this.$emit('removeCandidate',candidateId);
     },
-    favoriteCandidate() {
-      
+    favoriteCandidate(candidateId, isFavorite) {
+      this.$emit('favoriteCandidate',candidateId, isFavorite);
     }
   },
   components: {

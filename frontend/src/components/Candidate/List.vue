@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row" v-for="(candidate) in computedCandidateList" :key="candidate.id">
-      <Item :candidate="candidate" />
+      <Item :candidate="candidate" v-on:removeCandidate="removeCandidate" v-on:favoriteCandidate="favoriteCandidate"/>
     </div>
   </div>
 </template>
@@ -25,7 +25,12 @@ export default {
     }
   },
   methods: {
-
+    removeCandidate(candidateId) {
+      console.log('Removi o candidato de id', candidateId);
+    },
+    favoriteCandidate(candidateId, isFavorite) {
+      console.log('Favoritei o candidato', candidateId, isFavorite);
+    }
   },
   props: {
     candidateList: {
@@ -41,6 +46,5 @@ export default {
 
 
 <style scoped>
-
 </style>
 

@@ -24,9 +24,9 @@ export default {
     };
   },
   created() {
-      if(this.candidate.isFavorite) {
-          this.isCandidateFavorite = true;
-      }
+    if (this.candidate.isFavorite) {
+      this.isCandidateFavorite = true;
+    }
   },
   computed: {
     isFavorited: {
@@ -37,8 +37,8 @@ export default {
   },
   methods: {
     favoriteCandidate() {
-      this.$emit("favoriteCandidate", this.candidate.id);
-      this.isCandidateFavorite=!this.isCandidateFavorite;
+      this.isCandidateFavorite = !this.isCandidateFavorite;
+      this.$emit("favoriteCandidate", this.candidate.id, this.isCandidateFavorite);
     },
     removeCandidate(e) {
       this.$emit("removeCandidate", this.candidate.id);
