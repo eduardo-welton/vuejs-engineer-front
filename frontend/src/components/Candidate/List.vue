@@ -26,10 +26,10 @@ export default {
   },
   methods: {
     removeCandidate(candidateId) {
-      console.log('Removi o candidato de id', candidateId);
+      this.$emit("removeCandidate", candidateId);
     },
     favoriteCandidate(candidateId, isFavorite) {
-      console.log('Favoritei o candidato', candidateId, isFavorite);
+      this.$emit("favoriteCandidate", candidateId, isFavorite);
     }
   },
   props: {
