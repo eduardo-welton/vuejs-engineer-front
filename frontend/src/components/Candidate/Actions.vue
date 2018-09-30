@@ -1,8 +1,8 @@
 <template>
     <div>
         <button class="btn button" style="margin-right: 10px;" @click="favoriteCandidate">
-          <i class="fas fa-star" v-if="isFavorited"/>
-          <i class="far fa-star" v-else/>
+          <i class="fas fa-star btn-star" v-if="isFavorited"/>
+          <i class="far fa-star btn-star" v-else/>
         </button>
         <div class="dropdown">
           <button class="btn button " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
