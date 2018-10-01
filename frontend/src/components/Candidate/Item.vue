@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-md-12">
             <Title :text="candidate.name" />
-            <Advice text="Novo essa semana" />
+            <Advice text="Novo essa semana" v-if="candidate.newThisWeek"/>
           </div>
 
           <div class="col-md-12">
