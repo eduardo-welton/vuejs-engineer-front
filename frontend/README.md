@@ -1,11 +1,26 @@
-# frontend
+# FrontEnd with Vue-JS and a Fake JSON API
 
-## Project setup
+## Beginning
+```
+The test is made with two folders, backend (with json-server and FakeServer ) and frontend
+```
+
+## Project setup (Backend)
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Project setup (Frontend)
+```
+npm install
+```
+
+### To Start Backend Server (please, always start this project first)
+```
+npm start
+```
+
+### To Start Frontend
 ```
 npm run serve
 ```
@@ -15,12 +30,7 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### Run unit tests (on FrontEnd)
 ```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
+npm run test
 ```
